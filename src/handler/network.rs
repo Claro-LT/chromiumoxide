@@ -124,7 +124,8 @@ impl NetworkManager {
                     .handle_auth_requests(true)
                     .pattern(RequestPattern::builder().url_pattern("*").build())
                     .build(),
-            )
+            );
+            self.protocol_request_interception_enabled = true
         } else {
             self.push_cdp_request(DisableParams::default())
         }
